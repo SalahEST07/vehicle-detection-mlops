@@ -8,13 +8,15 @@ venv/
 
 # Dataset archive
 data_for_colab.zip
+data/annotations_trainval2017.zip
 
-# Pretrained model weights
-yolo26n.pt
+# PyTorch model weights
+*.pt
 
 # Training outputs
 runs/
 training/results/
+training/confidence_analysis/
 
 # MLflow local storage
 mlartifacts/
@@ -23,15 +25,5 @@ mlflow.db
 # DVC cache
 .dvc/cache/
 
-# Python cache
-__pycache__/
-*.py[cod]
-
 # Temporary test image
 bus.jpg
-
-# Large original dataset archive
-data/annotations_trainval2017.zip
-
-# Generated confidence validation results
-training/confidence_analysis/

@@ -1,0 +1,28 @@
+
+YOLO26n - PyTorch vs ONNX Comparison
+====================================
+
+Image: bus.jpg
+Image size: 640 x 480
+Confidence threshold: 0.25
+
+PyTorch:
+- Detected objects: 1
+- Class: bus
+- Confidence: 0.8925668
+
+ONNX:
+- Detected objects: 1
+- Class: bus
+- Confidence: 0.9078798
+
+Comparison:
+- Class agreement: Yes
+- Detection count agreement: Yes
+- Confidence difference: 0.0153130
+- ONNX Runtime provider: CPUExecutionProvider
+
+Conclusion:
+The exported ONNX model successfully reproduced the
+PyTorch model's vehicle detection on the test image.
+Both models detected one bus.
