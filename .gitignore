@@ -1,0 +1,37 @@
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Dataset archive
+data_for_colab.zip
+
+# Pretrained model weights
+yolo26n.pt
+
+# Training outputs
+runs/
+training/results/
+
+# MLflow local storage
+mlartifacts/
+mlflow.db
+
+# DVC cache
+.dvc/cache/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Temporary test image
+bus.jpg
+
+# Large original dataset archive
+data/annotations_trainval2017.zip
+
+# Generated confidence validation results
+training/confidence_analysis/
