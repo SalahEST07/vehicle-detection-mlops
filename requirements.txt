@@ -22,3 +22,7 @@ pillow==13.0.0
 # MLOps and Experiment Tracking
 mlflow==3.17.2
 dvc[gdrive]==3.67.1
+
+# Testing
+pytest==9.2.0
+httpx==0.28.1

@@ -8,17 +8,31 @@ PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
 MODEL_PATH = PROJECT_ROOT / "models" / "yolo26n_best.onnx"
 
-# Load the ONNX model
-model = YOLO(
-    str(MODEL_PATH),
-    task="detect"
-)
+# Lazy model loading
+model = None
+
+
+def get_model():
+    global model
+
+    if model is None:
+        if not MODEL_PATH.exists():
+            raise FileNotFoundError(
+                f"ONNX model not found: {MODEL_PATH}"
+            )
+
+        model = YOLO(
+            str(MODEL_PATH),
+            task="detect"
+        )
+
+    return model
 
 def predict_image(image_path: str, confidence: float = 0.25):
     """
     Run vehicle detection on an image.
     """
-
+    model = get_model()
     results = model.predict(
         source=image_path,
         conf=confidence,
@@ -63,7 +77,7 @@ def predict_video(video_path: str, output_path: str, confidence: float = 0.25):
     Track vehicles across video frames using ByteTrack.
     Assign each tracking ID a stable class using majority voting.
     """
-
+    model = get_model()
     import cv2
     import csv
     from collections import Counter, defaultdict
