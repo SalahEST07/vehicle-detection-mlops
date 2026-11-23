@@ -27,3 +27,21 @@ mlflow.db
 
 # Temporary test image
 bus.jpg
+
+# Temporary video and image tests
+*.mp4
+car.jpg
+bus.jpg
+Capture*.jpg
+pair_4_5_frame_*.jpg
+track_frame_*.jpg
+
+# Tracking investigation outputs
+tracking_diagnostics.csv
+tracking_inspection/
+outputs/
+
+# Temporary inspection scripts
+inspect_duplicate_tracks.py
+inspect_pair_frames.py
+inspect_tracking.py
