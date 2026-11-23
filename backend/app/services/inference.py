@@ -1,6 +1,5 @@
 
 from pathlib import Path
-from ultralytics import YOLO
 
 
 # Project root: G:\vehicle-detection-mlops
@@ -17,14 +16,11 @@ def get_model():
 
     if model is None:
         if not MODEL_PATH.exists():
-            raise FileNotFoundError(
-                f"ONNX model not found: {MODEL_PATH}"
-            )
+            raise FileNotFoundError(f"ONNX model not found: {MODEL_PATH}")
 
-        model = YOLO(
-            str(MODEL_PATH),
-            task="detect"
-        )
+        from ultralytics import YOLO
+
+        model = YOLO(str(MODEL_PATH), task="detect")
 
     return model
 
