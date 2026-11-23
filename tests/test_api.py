@@ -78,3 +78,22 @@ def test_image_prediction_with_mocked_model(monkeypatch):
     assert response.status_code == 200
     assert response.json()["total_detections"] == 1
     assert response.json()["detections"][0]["class_name"] == "car"
+
+def test_metrics_endpoint():
+    response = client.get("/metrics")
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert "total_requests" in data
+    assert "successful_requests" in data
+    assert "failed_requests" in data
+    assert "average_request_time_seconds" in data
+    assert "detection_counts" in data
+
+    assert isinstance(data["detection_counts"], dict)
+
+    assert set(data["detection_counts"].keys()) == {
+        "car", "motorcycle", "bus", "truck"
+    }
