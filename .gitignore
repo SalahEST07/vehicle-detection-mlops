@@ -45,3 +45,12 @@ outputs/
 inspect_duplicate_tracks.py
 inspect_pair_frames.py
 inspect_tracking.py
+
+# Python virtual environments
+.venv*/
+venv*/
+
+# MLflow database backups
+mlflow_backup*.db
+
+mlflow_backup*.db

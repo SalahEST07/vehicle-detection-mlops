@@ -1,0 +1,10 @@
+fastapi==0.162.0
+uvicorn==0.54.0
+python-multipart==0.0.34
+pydantic==2.14.2
+ultralytics==8.4.198
+onnxruntime==1.32.0
+opencv-python-headless==5.0.0.93
+pillow==13.0.0
+onnx==1.23.2
+lap==0.5.14

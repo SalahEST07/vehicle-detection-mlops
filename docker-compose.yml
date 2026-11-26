@@ -1,0 +1,20 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: vehicle-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./outputs/videos:/app/outputs/videos
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: vehicle-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
